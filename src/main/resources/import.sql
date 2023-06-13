@@ -1,0 +1,10 @@
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('João Lucas', '111.111.111-11', 10000.0, '1997-08-25', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Luana Chi', '222.222.222-22', 20000.0, '2003-02-24', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Roberta Silva', '333.333.333-33', 10000.0, '1973-08-18', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Roger Luiz', '444.444.444-44', 30000.0, '1967-10-05', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Leticia Silva', '555.555.555-55', 1500.0, '2004-02-14', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Ewerton Lima', '666.666.666-66', 3500.0, '1995-07-06', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Weberton Souza', '777.777.777-77', 5000.0, '1990-14-05', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Maria Silva', '888.888.888-88', 6500.0, '1978-12-14', 4);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Nikola Jokic', '999.999.999-99', 9000.0, '1989-06-12', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Neymar Júnior', '101.010.101-01', 100000.0, '1992-02-05', 1);
