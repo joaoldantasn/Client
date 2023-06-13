@@ -19,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.jlucas.client.dtos.ClientDTO;
 import com.jlucas.client.services.ClientService;
 
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -41,7 +43,7 @@ public class ClientController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<ClientDTO> insert( @RequestBody ClientDTO dto) {
+	public ResponseEntity<ClientDTO> insert( @Valid  @RequestBody ClientDTO dto) {
 		dto =  service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")
 				.buildAndExpand(dto.getId()).toUri();
