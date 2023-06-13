@@ -11,6 +11,8 @@ import com.jlucas.client.entities.Client;
 import com.jlucas.client.exceptions.ClientNotFoundException;
 import com.jlucas.client.repositories.ClientRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 
 
 
@@ -43,10 +45,14 @@ public class ClientService {
 	
 	@Transactional
 	public ClientDTO update(Long id, ClientDTO dto) {
-		Client entity = repository.getReferenceById(id);
-		copyDtoToEntity(dto, entity);
-		entity = repository.save(entity);
-		return new ClientDTO(entity);
+		try {
+			Client entity = repository.getReferenceById(id);
+			copyDtoToEntity(dto, entity);
+			entity = repository.save(entity);
+			return new ClientDTO(entity);
+		} catch (EntityNotFoundException e) {
+			throw new ClientNotFoundException("Cliente não encontrado");
+		}
 	}
 	
 	@Transactional
