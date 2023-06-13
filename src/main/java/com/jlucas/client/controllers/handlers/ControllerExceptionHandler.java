@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.jlucas.client.dtos.CustomError;
 import com.jlucas.client.dtos.ValidationError;
 import com.jlucas.client.exceptions.ClientNotFoundException;
+import com.jlucas.client.exceptions.DatabaseException;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -32,6 +33,13 @@ public class ControllerExceptionHandler {
 		for(FieldError f : e.getBindingResult().getFieldErrors()) {
 			err.addError(f.getField(), f.getDefaultMessage());
 		}
+		return ResponseEntity.status(status).body(err);
+	}
+	
+	@ExceptionHandler(DatabaseException.class)
+	public ResponseEntity<CustomError> database(DatabaseException e, HttpServletRequest request){
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
 	}
 
