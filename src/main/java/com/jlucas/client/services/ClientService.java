@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jlucas.client.dtos.ClientDTO;
 import com.jlucas.client.entities.Client;
+import com.jlucas.client.exceptions.ClientNotFoundException;
 import com.jlucas.client.repositories.ClientRepository;
 
 
@@ -21,7 +22,8 @@ public class ClientService {
 	
 	@Transactional(readOnly = true)
 	public ClientDTO findById(Long id) {
-		Client client = repository.findById(id).get();
+		Client client = repository.findById(id).orElseThrow(
+				() -> new ClientNotFoundException("Cliente Inexistente"));
 		return new ClientDTO(client);
 	}
 	
